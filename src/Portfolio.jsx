@@ -110,7 +110,7 @@ const cinematics = [
 // ----------  COMPONENTS  ---------------------------------------------------
 const SectionHeader = ({ children }) => (
   <motion.h2
-    className="text-4xl font-bold mb-8 text-center"
+    className="text-4xl font-bold mb-12 text-center"
     initial={{ opacity: 0, y: 40 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6 }}
@@ -133,10 +133,10 @@ const VideoCard = ({ video, onPlay }) => (
     <img
       src={`https://img.youtube.com/vi/${video.ytId}/hqdefault.jpg`}
       alt={video.title}
-      className="w-full h-48 object-cover"
+      className="w-full h-64 object-cover"
     />
-    <div className="p-4 bg-white dark:bg-gray-900">
-      <h3 className="font-semibold text-lg group-hover:text-indigo-500 transition-colors">
+    <div className="p-5 bg-white dark:bg-gray-900">
+      <h3 className="font-semibold text-xl group-hover:text-indigo-500 transition-colors">
         {video.title}
       </h3>
     </div>
@@ -193,7 +193,7 @@ const VideoModal = ({ videoId, onClose }) => {
         initial={{ scale: 0.8, y: 20 }}
         animate={{ scale: 1, y: 0 }}
         exit={{ scale: 0.8, y: 20 }}
-        className="bg-gray-900 rounded-lg shadow-xl overflow-hidden relative w-full max-w-3xl aspect-video"
+        className="bg-gray-900 rounded-lg shadow-xl overflow-hidden relative w-full max-w-5xl aspect-video"
         onClick={(e) => e.stopPropagation()}
       >
         <iframe
@@ -229,11 +229,11 @@ export default function Portfolio() {
   };
 
   return (
-    <div className="font-sans text-gray-800 dark:text-gray-100 bg-gray-50 dark:bg-gray-950 scroll-smooth">
+    <div className="font-sans text-gray-800 dark:text-gray-100 bg-gray-50 dark:bg-gray-950 h-screen overflow-y-scroll snap-y snap-proximity scroll-smooth scroll-pt-[80px]">
       <Nav />
 
       {/* HERO */}
-      <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 text-white px-4">
+      <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 text-white px-4 snap-start">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -260,7 +260,13 @@ export default function Portfolio() {
 
       {/* ABOUT */}
       <Element name="about" className="section-anchor" />
-      <section className="max-w-4xl mx-auto py-24 px-4">
+      <motion.section
+        className="max-w-4xl mx-auto py-24 px-4 snap-start min-h-screen flex flex-col justify-center"
+        initial={{ backgroundColor: 'rgb(249 250 251)' }}
+        whileInView={{ backgroundColor: 'rgb(255 255 255)' }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: false, amount: 0.5 }}
+      >
         <SectionHeader>About Me</SectionHeader>
         <motion.p
           className="leading-relaxed text-lg"
@@ -275,11 +281,17 @@ export default function Portfolio() {
           et malesuada fames ac turpis egestas. Integer ac dolor et velit
           imperdiet tempus.
         </motion.p>
-      </section>
+      </motion.section>
 
       {/* EXPERIENCE */}
       <Element name="experience" className="section-anchor" />
-      <section className="bg-gray-100 dark:bg-gray-900 py-24 px-4">
+      <motion.section
+        className="py-24 px-4 snap-start min-h-screen flex flex-col justify-center"
+        initial={{ backgroundColor: 'rgb(243 244 246)' }}
+        whileInView={{ backgroundColor: 'rgb(229 231 235)' }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: false, amount: 0.5 }}
+      >
         <div className="max-w-4xl mx-auto">
           <SectionHeader>Experience</SectionHeader>
           {/* Replace the list items below with real job history */}
@@ -321,22 +333,34 @@ export default function Portfolio() {
             ))}
           </motion.ul>
         </div>
-      </section>
+      </motion.section>
 
       {/* SHORTFORM */}
       <Element name="shortform" className="section-anchor" />
-      <section className="max-w-6xl mx-auto py-24 px-4">
+      <motion.section
+        className="max-w-6xl mx-auto py-24 px-4 snap-start min-h-screen flex flex-col justify-center"
+        initial={{ backgroundColor: 'rgb(249 250 251)' }}
+        whileInView={{ backgroundColor: 'rgb(255 255 255)' }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: false, amount: 0.5 }}
+      >
         <SectionHeader>Short‑form Edits</SectionHeader>
         <Grid>
           {shortform.map((v) => (
             <VideoCard key={v.ytId} video={v} onPlay={handlePlayVideo} />
           ))}
         </Grid>
-      </section>
+      </motion.section>
 
       {/* LONGFORM */}
       <Element name="longform" className="section-anchor" />
-      <section className="bg-gray-100 dark:bg-gray-900 py-24 px-4">
+      <motion.section
+        className="py-24 px-4 snap-start min-h-screen flex flex-col justify-center"
+        initial={{ backgroundColor: 'rgb(243 244 246)' }}
+        whileInView={{ backgroundColor: 'rgb(229 231 235)' }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: false, amount: 0.5 }}
+      >
         <div className="max-w-6xl mx-auto">
           <SectionHeader>Long‑form Videos</SectionHeader>
           <Grid>
@@ -345,22 +369,34 @@ export default function Portfolio() {
             ))}
           </Grid>
         </div>
-      </section>
+      </motion.section>
 
       {/* ADS & INFO */}
       <Element name="ads" className="section-anchor" />
-      <section className="max-w-6xl mx-auto py-24 px-4">
+      <motion.section
+        className="max-w-6xl mx-auto py-24 px-4 snap-start min-h-screen flex flex-col justify-center"
+        initial={{ backgroundColor: 'rgb(249 250 251)' }}
+        whileInView={{ backgroundColor: 'rgb(255 255 255)' }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: false, amount: 0.5 }}
+      >
         <SectionHeader>Ads & Informational</SectionHeader>
         <Grid>
           {ads.map((v) => (
             <VideoCard key={v.ytId} video={v} onPlay={handlePlayVideo} />
           ))}
         </Grid>
-      </section>
+      </motion.section>
 
       {/* CINEMATICS (Previously Thumbnails) */}
       <Element name="cinematics" className="section-anchor" />
-      <section className="bg-gray-100 dark:bg-gray-900 py-24 px-4">
+      <motion.section
+        className="py-24 px-4 snap-start min-h-screen flex flex-col justify-center"
+        initial={{ backgroundColor: 'rgb(243 244 246)' }}
+        whileInView={{ backgroundColor: 'rgb(229 231 235)' }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: false, amount: 0.5 }}
+      >
         <div className="max-w-6xl mx-auto">
           <SectionHeader>Cinematics</SectionHeader>
           <Grid>
@@ -369,10 +405,10 @@ export default function Portfolio() {
             ))}
           </Grid>
         </div>
-      </section>
+      </motion.section>
 
       {/* FOOTER */}
-      <footer className="bg-gray-800 text-gray-400 py-12 text-center text-sm">
+      <footer className="bg-gray-800 text-gray-400 py-12 text-center text-sm snap-start">
         © {new Date().getFullYear()} [Your Name]. All rights reserved.
       </footer>
 
