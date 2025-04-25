@@ -1,3 +1,8 @@
+# My Portfolio
+
+This is my personal portfolio website created using React and Vite.
+<!-- Trigger rebuild -->
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
