@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Link as ScrollLink, Element } from "react-scroll";
-import { XMarkIcon, PencilSquareIcon, SparklesIcon, UsersIcon, EnvelopeIcon } from '@heroicons/react/24/solid';
+import { XMarkIcon, PencilSquareIcon, SparklesIcon, UsersIcon } from '@heroicons/react/24/solid';
 
 /**
  * Professional Portfolio – single‑page site
@@ -22,28 +22,33 @@ import { XMarkIcon, PencilSquareIcon, SparklesIcon, UsersIcon, EnvelopeIcon } fr
 // ----------  DATA  ---------------------------------------------------------
 const shortform = [
   {
-    title: "The Worst Cards in Magic: The Gathering",
-    url: "https://www.youtube.com/shorts/3dh-Vm48KM4",
-    ytId: "3dh-Vm48KM4",
+    title: "Run These Cards, Lose More Games!",
+    url: "https://www.youtube.com/shorts/EZvW5JO0IR8",
+    ytId: "EZvW5JO0IR8",
   },
   {
-    title: "Card Collectors Worst Nightmare",
-    url: "https://www.youtube.com/shorts/Gmtj0VWxmjU",
-    ytId: "Gmtj0VWxmjU",
+    title: "Donating $PDT to Paragons Subscribers!",
+    url: "https://www.youtube.com/shorts/KqJalp79Apg",
+    ytId: "KqJalp79Apg",
   },
   {
-    title: "THE HIGHEST RANK MOBILE PLAYER IN PARALLEL TCG",
-    url: "https://www.youtube.com/shorts/KDjI42cuhkw",
-    ytId: "KDjI42cuhkw",
+    title: "What To Do With Your PRIME",
+    url: "https://www.youtube.com/shorts/hXWZMy2kmKs",
+    ytId: "hXWZMy2kmKs",
+  },
+  {
+    title: "5 Things You Missed in the Wayfinder White Paper",
+    url: "https://www.youtube.com/shorts/M7Sc9YFZRuE",
+    ytId: "M7Sc9YFZRuE",
+  },
+  {
+    title: "Rumble Arcade Community Cup",
+    url: "https://youtu.be/FW4rGdXQtxU",
+    ytId: "FW4rGdXQtxU",
   },
 ];
 
 const longform = [
-  {
-    title: "Project O: Everything You Need To Know",
-    url: "https://www.youtube.com/watch?v=yqUQPsPUw0U",
-    ytId: "yqUQPsPUw0U",
-  },
   {
     title: "Is Wayfinder the ChatGPT of Crypto?",
     url: "https://www.youtube.com/watch?v=EZUzJVPGvdU",
@@ -54,6 +59,11 @@ const longform = [
     url: "https://www.youtube.com/watch?v=zh1DQBHjFR4",
     ytId: "zh1DQBHjFR4",
   },
+  {
+    title: "What to Do With Your $PDT",
+    url: "https://www.youtube.com/watch?v=gcLwPN-R_Dc",
+    ytId: "gcLwPN-R_Dc",
+  },
 ];
 
 const ads = [
@@ -63,9 +73,19 @@ const ads = [
     ytId: "dJHf5xEe6eo",
   },
   {
+    title: "Champions TCG Invitational",
+    url: "https://youtu.be/J6evqJw_hm0",
+    ytId: "J6evqJw_hm0",
+  },
+  {
     title: "Champions TCG Pro Tour 1",
     url: "https://youtu.be/genEw6KJBFg",
     ytId: "genEw6KJBFg",
+  },
+  {
+    title: "Champions TCG IMX Announcement",
+    url: "https://youtu.be/e92objYWmRQ",
+    ytId: "e92objYWmRQ",
   },
 ];
 
@@ -74,6 +94,11 @@ const cinematics = [
     title: "Champions TCG Beast of Blossom",
     url: "https://www.youtube.com/watch?v=8udyhb5dHKo",
     ytId: "8udyhb5dHKo",
+  },
+  {
+    title: "Champions TCG Core Set 2025",
+    url: "https://www.youtube.com/watch?v=EncF5TpDRco",
+    ytId: "EncF5TpDRco",
   },
   {
     title: "Champions TCG Generation 4",
@@ -114,6 +139,11 @@ const gamingShorts = [
     title: "StarHeroes Short",
     url: "https://youtu.be/jKHijZHpV-Q",
     ytId: "jKHijZHpV-Q",
+  },
+  {
+    title: "Cambria Fun Short",
+    url: "https://youtu.be/eMOrJDObVu4",
+    ytId: "eMOrJDObVu4",
   },
 ];
 
@@ -180,21 +210,6 @@ const ThumbnailCard = ({ thumbnail }) => (
       />
     </a>
   </motion.div>
-);
-
-const DiscordIcon = (props) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 127.14 96.36"
-    aria-label="Discord"
-    role="img"
-    {...props}
-  >
-    <path
-      fill="currentColor"
-      d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83a72.37,72.37,0,0,0-3.36-6.83A105.15,105.15,0,0,0,19.43,8.09C-3.24,32.66-5.12,57.21,5.1,82.23A109,109,0,0,0,29.7,96.36a83.65,83.65,0,0,0,18.56-10.33,73.23,73.23,0,0,1-10-9.94,65.38,65.38,0,0,1-3.62-5.16A86.4,86.4,0,0,0,53.29,81a74.48,74.48,0,0,0,18.9-5.17,87.6,87.6,0,0,0,14.08,5.17,74.49,74.49,0,0,0,18.9,5.17,86.4,86.4,0,0,0,18.53-10.25,65.38,65.38,0,0,1-3.62,5.16,73.23,73.23,0,0,1-10,9.94,83.65,83.65,0,0,0,18.56,10.33A109,109,0,0,0,122.04,82.23C132.25,57.21,130.37,32.66,107.7,8.07ZM42.45,65.69C36.67,65.69,32,60.32,32,53.54s4.67-12.15,10.45-12.15,10.45,5.37,10.45,12.15S48.23,65.69,42.45,65.69Zm42.24,0C78.91,65.69,74.24,60.32,74.24,53.54s4.67-12.15,10.45-12.15,10.45,5.37,10.45,12.15S90.91,65.69,84.69,65.69Z"
-    />
-  </svg>
 );
 
 const Nav = () => (
@@ -403,23 +418,6 @@ export default function Portfolio() {
           <p className="leading-relaxed text-lg pl-9">
             Created standout content entries and showcase videos for community competitions hosted by StarHeroes, Rumble Arcade, BattlePlan, Jokers of Neon, Gangsters Arena, and others.
           </p>
-          <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700 text-center">
-            <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">Contact Me</h3>
-            <div className="flex justify-center items-center flex-wrap gap-x-8 gap-y-4">
-              <a href="mailto:lnkochev2@gmail.com" className="flex items-center gap-2 font-medium text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-                <EnvelopeIcon className="h-5 w-5" />
-                lnkochev2@gmail.com
-              </a>
-              <a href="https://x.com/thecilium" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-medium text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-                <span className="font-bold text-lg">X</span>
-                @thecilium
-              </a>
-              <div className="flex items-center gap-2 font-medium text-gray-600 dark:text-gray-300">
-                <DiscordIcon className="h-5 w-5" />
-                ciliumcho
-              </div>
-            </div>
-          </div>
         </motion.div>
       </motion.section>
 
