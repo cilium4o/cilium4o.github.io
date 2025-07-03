@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Link as RouterLink } from "react-router-dom";
 import { Link as ScrollLink, Element } from "react-scroll";
 import { XMarkIcon, PencilSquareIcon, SparklesIcon, UsersIcon, EnvelopeIcon } from '@heroicons/react/24/solid';
 
@@ -202,8 +203,12 @@ const Nav = () => (
     <div className="max-w-6xl mx-auto flex items-center justify-between p-4">
       <div className="font-bold text-xl">My Portfolio</div>
       <ul className="flex gap-6 text-sm font-medium">
+        <li>
+          <RouterLink to="/about" className="cursor-pointer hover:text-indigo-600">
+            About
+          </RouterLink>
+        </li>
         {[
-          { to: "about", label: "About" },
           { to: "shortform", label: "Shorts" },
           { to: "longform", label: "Longform" },
           { to: "cinematics", label: "Cinematics" },
@@ -293,14 +298,14 @@ export default function Portfolio() {
       <Nav />
 
       {/* HERO */}
-      <section className="min-h-screen flex items-center justify-between bg-gradient-to-br from-purple-700 via-purple-800 to-purple-900 text-white px-16 snap-start relative overflow-hidden">
+      <section className="py-12 flex items-center justify-between bg-gradient-to-br from-purple-700 via-purple-800 to-purple-900 text-white px-16 snap-start relative overflow-hidden">
 
         {/* Left Images */}
-        <motion.div className="hidden md:flex flex-col gap-8"> {/* Hide on small screens, increased gap */}
+        <motion.div className="hidden md:flex flex-col gap-2"> {/* Hide on small screens, further decreased gap */}
           <motion.img
             src="/images/clm1.jpg"
             alt="Collage Image 1"
-            className="w-80 h-auto rounded-lg shadow-xl transform -rotate-12 hover:rotate-0 hover:scale-110 transition-transform duration-300 ease-in-out" // Changed width to w-80
+            className="w-48 h-auto rounded-lg shadow-xl transform -rotate-12 hover:rotate-0 hover:scale-110 transition-transform duration-300 ease-in-out" // Further reduced width
             initial={{ opacity: 0, x: -80, rotate: -30 }}
             animate={{ opacity: 1, x: 0, rotate: -12 }}
             transition={{ delay: 0.3, duration: 0.8, type: "spring", stiffness: 50 }}
@@ -308,7 +313,7 @@ export default function Portfolio() {
           <motion.img
             src="/images/clm2.jpeg" // Corrected file extension
             alt="Collage Image 2"
-            className="w-80 h-auto rounded-lg shadow-xl transform rotate-12 hover:rotate-0 hover:scale-110 transition-transform duration-300 ease-in-out" // Changed width to w-80
+            className="w-48 h-auto rounded-lg shadow-xl transform rotate-12 hover:rotate-0 hover:scale-110 transition-transform duration-300 ease-in-out" // Further reduced width
             initial={{ opacity: 0, x: -80, rotate: 30 }}
             animate={{ opacity: 1, x: 0, rotate: 12 }}
             transition={{ delay: 0.5, duration: 0.8, type: "spring", stiffness: 50 }}
@@ -344,11 +349,11 @@ export default function Portfolio() {
         </motion.div>
 
         {/* Right Images */}
-        <motion.div className="hidden md:flex flex-col gap-12"> {/* Increased gap */}
+        <motion.div className="hidden md:flex flex-col gap-4"> {/* Further decreased gap */}
            <motion.img
             src="/images/clm3.jpg"
             alt="Collage Image 3"
-            className="w-96 h-auto rounded-lg shadow-xl transform rotate-12 hover:rotate-0 hover:scale-110 transition-transform duration-300 ease-in-out" // Increased width to w-96
+            className="w-64 h-auto rounded-lg shadow-xl transform rotate-12 hover:rotate-0 hover:scale-110 transition-transform duration-300 ease-in-out" // Further reduced width
             initial={{ opacity: 0, x: 80, rotate: 30 }}
             animate={{ opacity: 1, x: 0, rotate: 12 }}
             transition={{ delay: 0.4, duration: 0.8, type: "spring", stiffness: 50 }}
@@ -356,7 +361,7 @@ export default function Portfolio() {
            <motion.img
             src="/images/clm4.jpg"
             alt="Collage Image 4"
-            className="w-80 h-auto rounded-lg shadow-xl transform -rotate-12 hover:rotate-0 hover:scale-110 transition-transform duration-300 ease-in-out" // Increased width
+            className="w-52 h-auto rounded-lg shadow-xl transform -rotate-12 hover:rotate-0 hover:scale-110 transition-transform duration-300 ease-in-out" // Further reduced width
             initial={{ opacity: 0, x: 80, rotate: -30 }}
             animate={{ opacity: 1, x: 0, rotate: -12 }}
             transition={{ delay: 0.6, duration: 0.8, type: "spring", stiffness: 50 }}
@@ -364,64 +369,6 @@ export default function Portfolio() {
         </motion.div>
 
       </section>
-
-      {/* ABOUT */}
-      <Element name="about" className="section-anchor" />
-      <motion.section
-        className="max-w-6xl mx-auto py-24 px-4 snap-start flex flex-col"
-        initial={{ backgroundColor: 'rgb(249 250 251)' }}
-        whileInView={{ backgroundColor: 'rgb(255 255 255)' }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: false, amount: 0.5 }}
-      >
-        <SectionButton>About Me</SectionButton>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          {/* Replaced content with new 3-point structure */}
-          <p className="mb-4 leading-relaxed text-lg flex items-start">
-            <PencilSquareIcon className="h-6 w-6 mr-3 text-indigo-600 flex-shrink-0" />
-            <span>
-              <strong>What I do:</strong> Edit short-form and long-form gaming content, including highlights, reviews, ads, trailers, promos, and make eye-catching thumbnails.
-            </span>
-          </p>
-          <p className="mb-4 leading-relaxed text-lg flex items-start">
-            <SparklesIcon className="h-6 w-6 mr-3 text-yellow-500 flex-shrink-0" />
-            <span>
-              <strong>Strengths:</strong> Fast turnaround; strong storytelling; keeping up-to-date with trends; engaging, on-brand visuals. Well-versed in internet culture.
-            </span>
-          </p>
-          <p className="mb-4 leading-relaxed text-lg flex items-start">
-            <UsersIcon className="h-6 w-6 mr-3 text-green-500 flex-shrink-0" />
-            <span>
-              <strong>Clients & collaborations:</strong> Paragons DAO, Champions TCG, Chosen Ones, Cambria, particularly proud of our recent work at Paragons DAO, where we've delivered high-quality, informative, and entertaining content—above all, with integrity.
-            </span>
-          </p>
-          <p className="leading-relaxed text-lg pl-9">
-            Created standout content entries and showcase videos for community competitions hosted by StarHeroes, Rumble Arcade, BattlePlan, Jokers of Neon, Gangsters Arena, and others.
-          </p>
-          <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700 text-center">
-            <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">Contact Me</h3>
-            <div className="flex justify-center items-center flex-wrap gap-x-8 gap-y-4">
-              <a href="mailto:lnkochev2@gmail.com" className="flex items-center gap-2 font-medium text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-                <EnvelopeIcon className="h-5 w-5" />
-                lnkochev2@gmail.com
-              </a>
-              <a href="https://x.com/thecilium" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-medium text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-                <span className="font-bold text-lg">X</span>
-                @thecilium
-              </a>
-              <div className="flex items-center gap-2 font-medium text-gray-600 dark:text-gray-300">
-                <DiscordIcon className="h-5 w-5" />
-                ciliumcho
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      </motion.section>
 
       {/* SHORTFORM */}
       <Element name="shortform" className="section-anchor" />

@@ -1,9 +1,16 @@
 import React from 'react';
-import Portfolio from './Portfolio.jsx'; // You can explicitly add the .jsx extension
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Portfolio from './Portfolio.jsx';
+import About from './About.jsx';
 
 function App() {
   return (
-    <Portfolio />
+    <Router>
+      <Routes>
+        <Route path="/" element={<Portfolio />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </Router>
   );
 }
 
